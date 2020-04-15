@@ -141,7 +141,7 @@ def createOrder(request, pk):
 		formset = OrderFormSet(request.POST, instance=customer)
 		if formset.is_valid():
 			formset.save()
-			return redirect('home')
+			return redirect('customer')
 
 	context = {'formset':formset}
 	return render(request, 'accounts/order_form.html', context)
