@@ -1,0 +1,26 @@
+{% load static %}
+<style>
+.white{
+color: #ffffff;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Saifeddin CRM</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      {% if request.user.is_staff %}
+        
+      <a class="nav-item nav-link active" href="{% url 'home' %}">Dashboard <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="{% url 'products' %}">Products</a>
+      {% else %}
+        
+      <a class="nav-item nav-link" href="{% url 'settings' %}">Settings</a>
+      {% endif %}
+    </div>
+  </div>
+      <span class="white navbar-brand">Hello, {{ request.user }}  </span>
+      <a class="white nav-item nav-link active" href="{% url 'logout' %}"> Logout</a>
+</nav>
